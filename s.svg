@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8f9fa" />
+
+  <!-- Title -->
+  <text x="400" y="40" font-size="24" text-anchor="middle" font-weight="bold" fill="#333">
+    1D Convolution on Audio Signal
+  </text>
+
+  <!-- Original audio waveform -->
+  <g transform="translate(50, 120)">
+    <text x="-40" y="50" font-size="16" text-anchor="middle" transform="rotate(-90, -40, 50)">
+      Amplitude
+    </text>
+    <text x="350" y="115" font-size="16" text-anchor="middle">
+      Time (samples)
+    </text>
+    <text x="-20" y="-10" font-size="18" font-weight="bold">
+      Audio Input
+    </text>
+
+    <!-- Audio waveform (simplified) -->
+    <line x1="0" y1="0" x2="0" y2="100" stroke="#333" stroke-width="2" />
+    <line x1="0" y1="100" x2="700" y2="100" stroke="#333" stroke-width="2" />
+    <path 
+      d="M0,50 Q25,20 50,50 T100,50 T150,40 T200,60 T250,30 T300,70 T350,50 T400,60 T450,40 T500,80 T550,30 T600,50 T650,60 T700,50" 
+      stroke="#3498db" 
+      stroke-width="3" 
+      fill="none"
+    />
+
+    <!-- Kernel window highlight and label placed above it -->
+    <rect 
+      x="200" 
+      y="0" 
+      width="100" 
+      height="100" 
+      fill="rgba(255, 165, 0, 0.2)" 
+      stroke="orange" 
+      stroke-width="2" 
+      stroke-dasharray="5,5"
+    />
+    <text x="250" y="-10" font-size="14" text-anchor="middle" fill="orange">
+      Kernel window (size=5)
+    </text>
+  </g>
+
+  <!-- The convolution operation -->
+  <g transform="translate(400, 250)">
+    <circle cx="0" cy="0" r="20" fill="#e74c3c" />
+    <text x="0" y="5" font-size="16" text-anchor="middle" fill="white">
+      ⊗
+    </text>
+    <text x="0" y="35" font-size="14" text-anchor="middle">
+      Convolution
+    </text>
+  </g>
+
+  <!-- Arrows -->
+  <path d="M400,180 L400,220" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  <path d="M400,280 L400,320" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Arrowhead marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+
+  <!-- Kernel visualization -->
+  <g transform="translate(150, 250)">
+    <text x="0" y="-10" font-size="16" font-weight="bold">
+      Kernel Weights
+    </text>
+    <rect x="0" y="0" width="40" height="40" fill="#f39c12" stroke="#333" />
+    <rect x="40" y="0" width="40" height="40" fill="#e67e22" stroke="#333" />
+    <rect x="80" y="0" width="40" height="40" fill="#d35400" stroke="#333" />
+    <rect x="120" y="0" width="40" height="40" fill="#e67e22" stroke="#333" />
+    <rect x="160" y="0" width="40" height="40" fill="#f39c12" stroke="#333" />
+
+    <text x="20" y="25" font-size="14" text-anchor="middle">
+      0.1
+    </text>
+    <text x="60" y="25" font-size="14" text-anchor="middle">
+      0.2
+    </text>
+    <text x="100" y="25" font-size="14" text-anchor="middle">
+      0.4
+    </text>
+    <text x="140" y="25" font-size="14" text-anchor="middle">
+      0.2
+    </text>
+    <text x="180" y="25" font-size="14" text-anchor="middle">
+      0.1
+    </text>
+  </g>
+
+  <!-- Feature map output -->
+  <g transform="translate(50, 380)">
+    <text x="-20" y="-10" font-size="18" font-weight="bold">
+      Feature Map Output
+    </text>
+    <line x1="0" y1="0" x2="0" y2="70" stroke="#333" stroke-width="2" />
+    <line x1="0" y1="70" x2="700" y2="70" stroke="#333" stroke-width="2" />
+    <path 
+      d="M0,35 Q50,50 100,30 T200,40 T300,20 T400,50 T500,25 T600,35 T700,40" 
+      stroke="#2ecc71" 
+      stroke-width="3" 
+      fill="none"
+    />
+    <circle cx="250" cy="40" r="6" fill="#e74c3c" />
+    <line x1="250" y1="40" x2="250" y2="90" stroke="#e74c3c" stroke-width="1" stroke-dasharray="3,3" />
+    <text x="250" y="105" font-size="14" text-anchor="middle" fill="#e74c3c">
+      Output value from highlighted window
+    </text>
+  </g>
+
+  <!-- Explanatory text -->
+  <g transform="translate(620, 250)">
+    <text x="0" y="0" font-size="14" font-weight="bold">
+      Process:
+    </text>
+    <text x="0" y="25" font-size="12">
+      1. Kernel slides along audio
+    </text>
+    <text x="0" y="45" font-size="12">
+      2. Dot product at each position
+    </text>
+    <text x="0" y="65" font-size="12">
+      3. Creates new feature map
+    </text>
+    <text x="0" y="85" font-size="12">
+      4. Captures patterns in time
+    </text>
+  </g>
+</svg>
